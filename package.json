@@ -14,7 +14,8 @@
     "express": "~3.1",
     "rimraf": "~2.1",
     "win-spawn": "~1.1",
-    "open": "0.0.3"
+    "open": "0.0.3",
+    "debug": "~0.7.2"
   },
   "devDependencies": {},
   "scripts": {
