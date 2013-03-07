@@ -45,6 +45,7 @@ function apply(directory, filePath, options, res, next) {
       return Q.nfbind(builder
         .build.bind(builder))()
         .then(function (result) {
+          debug('built');
           if (/\.js$/.test(filePath)) {
             res.setHeader('Content-Type', 'application/javascript');
             res.send(result.require + '\n' + result.js);
@@ -54,6 +55,7 @@ function apply(directory, filePath, options, res, next) {
           } else {
             return next();
           }
+          debug('sent');
         });
     }, function () { return next(); })
     .done(null, next);

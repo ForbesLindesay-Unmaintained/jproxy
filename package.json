@@ -1,6 +1,6 @@
 {
   "name": "jproxy",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Proxy while applying amazing transformations",
   "main": "index.js",
   "bin": {
@@ -15,8 +15,8 @@
     "rimraf": "~2.1",
     "win-spawn": "~1.1",
     "open": "0.0.3",
-    "debug": "~0.7.2",
-    "q": "~0.9.1"
+    "debug": "~0.7",
+    "q": "~0.9"
   },
   "devDependencies": {},
   "scripts": {
