@@ -1,6 +1,6 @@
 {
   "component": true,
   "browserify": {
-    "exclude": "*build/build.js"
+    "exclude": ["*build/build.js", "*/mocha.js"]
   }
 }
