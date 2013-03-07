@@ -1,0 +1,29 @@
+{
+  "name": "jproxy",
+  "version": "0.0.0",
+  "description": "Proxy while applying amazing transformations",
+  "main": "index.js",
+  "bin": {
+    "jproxy": "./bin/jproxy"
+  },
+  "dependencies": {
+    "browserify": "~2.4",
+    "component": "~0.13",
+    "component-builder": "~0.6",
+    "mime": "~1.2",
+    "express": "~3.1",
+    "rimraf": "~2.1",
+    "win-spawn": "~1.1",
+    "open": "0.0.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node test/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ForbesLindesay/jproxy.git"
+  },
+  "author": "ForbesLindesay",
+  "license": "MIT"
+}

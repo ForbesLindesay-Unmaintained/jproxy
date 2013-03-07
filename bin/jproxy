@@ -1,0 +1,20 @@
+#!/usr/bin/env node
+
+var open = require('open');
+var jproxy = require('../');
+var express = require('express');
+var app = express();
+express.errorHandler.title = 'jProxy';
+jproxy.config(process.cwd(), function (err, config) {
+  app.use(jproxy(process.cwd(), config));
+  app.use(express.directory(process.cwd(), {icons: true, hidden: true}));
+  app.use(express.errorHandler());
+  app.listen(8123);
+  var url = 'http://localhost:8123'
+  console.log("\n  view your repository at \u001b[32m%s/\u001b[0m", url)
+  console.log('  press CTRL+C to quit')
+
+  open(url, function (err) {
+    // ignore errors
+  });
+});
