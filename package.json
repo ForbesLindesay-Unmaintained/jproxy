@@ -15,7 +15,8 @@
     "rimraf": "~2.1",
     "win-spawn": "~1.1",
     "open": "0.0.3",
-    "debug": "~0.7.2"
+    "debug": "~0.7.2",
+    "q": "~0.9.1"
   },
   "devDependencies": {},
   "scripts": {

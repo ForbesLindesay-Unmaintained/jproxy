@@ -1,7 +1,7 @@
 var join = require('path').join;
 var rimraf = require('rimraf');
 var express = require('express');
-var port = require('./port')();
+var port = require('../port')();
 var jproxy = require('../../');
 
 rimraf.sync(join(__dirname, 'fixture', 'build'));
