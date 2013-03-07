@@ -43,6 +43,7 @@ function apply(directory, filePath, options, res, next) {
     if (options.dev !== false) builder.development();
     builder
       .build(function (err, result) {
+        debug('done');
         if (err) return next(err);
         if (/\.js$/.test(filePath)) {
           res.setHeader('Content-Type', 'application/javascript');
