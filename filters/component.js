@@ -22,6 +22,7 @@ exports.include = ['*/build/build.js', '*/build/build.css'];
 exports.exclude = '';
 
 function apply(directory, filePath, options, res, next) {
+  next = guard(next);
   //debug('%j -> %j using %j', directory, filePath, options);
   var dir = filePath.replace(/\/[^\/]+$/g, '/');
   //debug('dir %j', dir);
@@ -58,5 +59,16 @@ function apply(directory, filePath, options, res, next) {
           debug('sent');
         });
     }, function () { return next(); })
+    .timeout(60000)
     .done(null, next);
 };
+
+
+function guard(next) {
+  var called = false;
+  return function () {
+    if (called) return;
+    called = true;
+    next.apply(this, arguments);
+  }
+}
