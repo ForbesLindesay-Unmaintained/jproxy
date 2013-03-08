@@ -8,17 +8,16 @@
   },
   "dependencies": {
     "browserify": "~2.4",
-    "component": "~0.13",
     "component-builder": "~0.6",
     "mime": "~1.2",
     "express": "~3.1",
-    "rimraf": "~2.1",
-    "win-spawn": "~1.1",
     "open": "0.0.3",
     "debug": "~0.7",
     "q": "~0.9"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "rimraf": "~2.1"
+  },
   "scripts": {
     "test": "node test/index.js"
   },

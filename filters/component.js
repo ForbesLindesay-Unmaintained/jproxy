@@ -2,8 +2,6 @@ var debug = require('debug')('jproxy:component');
 var join = require('path').join;
 var dirname = require('path').dirname;
 var fs = require('fs');
-var wSpawn = require('win-spawn');
-var install = require.resolve('component/bin/component-install');
 var Builder = require('component-builder');
 
 var Q = require('q');
@@ -32,13 +30,6 @@ function apply(directory, filePath, options, res, next) {
   //debug('component dir %j', componentDir);
   stat(componentPath)
     .then(function () {
-      return stat(join(componentDir, 'components'))
-        .fail(function () {
-          return spawn(install, options.dev !== false ? ['--dev'] : [], {cwd: componentDir});
-        });
-    })
-    .then(function () {
-      debug('installed');
       var builder = new Builder(componentDir);
       builder.addLookup(join(componentDir, 'components'));
       if (options.dev !== false && options.srcURLs !== false) builder.addSourceURLs();
@@ -46,7 +37,6 @@ function apply(directory, filePath, options, res, next) {
       return Q.nfbind(builder
         .build.bind(builder))()
         .then(function (result) {
-          debug('built');
           if (/\.js$/.test(filePath)) {
             res.setHeader('Content-Type', 'application/javascript');
             res.send(result.require + '\n' + result.js);
@@ -59,7 +49,6 @@ function apply(directory, filePath, options, res, next) {
           debug('sent');
         });
     }, function () { return next(); })
-    .timeout(60000)
     .done(null, next);
 };
 

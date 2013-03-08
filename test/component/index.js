@@ -4,7 +4,6 @@ var express = require('express');
 var port = require('../port')();
 var jproxy = require('../../');
 
-rimraf.sync(join(__dirname, 'fixture', 'components'));
 rimraf.sync(join(__dirname, 'fixture', 'build'));
 
 
