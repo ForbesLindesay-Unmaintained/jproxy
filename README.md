@@ -1,5 +1,7 @@
 # jproxy
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/ForbesLindesay/jproxy.svg)](https://greenkeeper.io/)
+
 Proxy while applying amazing transformations
 
 ## Usage
